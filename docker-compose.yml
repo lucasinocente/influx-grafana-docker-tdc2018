@@ -3,11 +3,13 @@ services:
   grafana:
     image: "grafana/grafana"
     ports:
-     - "4200:4200"
+     - "3000:3000"
 
   influxdb:
     image: "influxdb"
     ports:
      - "8086:8086"
+    expose: 
+      - "8086"
     environment:
-      - INFLUXDB_DB=influxDB
+      - INFLUXDB_DB=tdcpoa2018

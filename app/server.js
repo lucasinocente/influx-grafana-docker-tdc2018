@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const helper = require('./url')
+const helper = require('./src')
 
 
 app.get('/', function(req, res) {
@@ -8,13 +8,19 @@ app.get('/', function(req, res) {
     const start = Date.now()
 
     helper.getUrl().then(url => {
+
         const latency = Date.now() - start
         const json = { url, latency }
-        console.log(json)
-        res.send(json);
+        console.log(`Request: ${JSON.stringify(json)}`)
+        
+        helper.saveInflux(json).then(() => {
+            res.send(json);
+        })
+        
     })
    
 });
 
-app.listen(3000);
-console.log('Go to http://localhost:3000');
+app.listen(8400);
+
+console.log(`Go to http://localhost:8400`);
