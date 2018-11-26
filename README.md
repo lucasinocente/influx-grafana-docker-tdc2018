@@ -1,4 +1,4 @@
-# Node + Influx + Grafada
+# Node + Influx + Grafana
 
 ## Requisitos
 
