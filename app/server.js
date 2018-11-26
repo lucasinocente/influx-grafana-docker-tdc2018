@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const helper = require('./src')
 
-
 app.get('/', function(req, res) {
     
     const start = Date.now()
@@ -11,9 +10,9 @@ app.get('/', function(req, res) {
 
         const latency = Date.now() - start
         const json = { url, latency }
-        console.log(`Request: ${JSON.stringify(json)}`)
         
         helper.saveInflux(json).then(() => {
+            console.log(`Request: ${JSON.stringify(json)}`)
             res.send(json);
         })
         
