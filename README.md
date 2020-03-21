@@ -7,7 +7,7 @@
 
 ## Rodar Influx + Grafana
 
-`docker compose up`
+`docker-compose up`
 
 ## Rodar aplicação
 
@@ -25,6 +25,7 @@ http://localhost:3000
 
 ```
 Name: Influx
-URL: http://node-influx-grafana_influxdb_1:8086
+URL: http://influxdb_1:8086
+Access: Browser
 Database: tdcpoa2018
 ```
